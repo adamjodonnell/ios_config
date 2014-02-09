@@ -26,15 +26,24 @@ module IOSConfig
       self.payloads       ||= []
     end
   
-    def signed(mdm_cert, mdm_intermediate_cert, mdm_private_key)
+    def signed_from_file(mdm_cert, mdm_intermediate_cert, mdm_private_key)
       certificate   = OpenSSL::X509::Certificate.new(File.read(mdm_cert))
       intermediate  = OpenSSL::X509::Certificate.new(File.read(mdm_intermediate_cert))
       private_key   = OpenSSL::PKey::RSA.new(File.read(mdm_private_key))
-    
-      signed_profile = OpenSSL::PKCS7.sign(certificate, private_key, unsigned, [intermediate], OpenSSL::PKCS7::BINARY)
-      signed_profile.to_der
+   
+ 			signed(certificate, intermediate, private_key)
     end
   
+		def signed(certificate, intermediate, private_key)
+			if intermediate.nil?
+      	signed_profile = OpenSSL::PKCS7.sign(certificate, private_key, unsigned, [], OpenSSL::PKCS7::BINARY)
+			else
+      	signed_profile = OpenSSL::PKCS7.sign(certificate, private_key, unsigned, [intermediate], OpenSSL::PKCS7::BINARY)
+			end
+
+      signed_profile.to_der
+		end
+
     def unsigned
       raise_if_blank [:version, :uuid, :type, :identifier, :display_name]
     

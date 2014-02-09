@@ -62,9 +62,13 @@ unsigned_profile = profile.unsigned
 
 # Or, generate a signed plist version of the profile
 
-signed_profile = profile.signed( signing_cert_path,
-                                 signing_cert_intermediate_path
-                                 signing_cert_key_path )
+signed_profile = profile.signed_from_file( signing_cert_path,
+                                           signing_cert_intermediate_path,
+                                           signing_cert_key_path )
+
+signed_profile = profile.signed( signing_cert,
+                                 signing_cert_intermediate,
+                                 signing_cert_key )
 ```
 
 ### Profile
