@@ -37,7 +37,7 @@ vpn_payload = IOSConfig::Payload::VPN.new connection_name:     "My VPN",
                                           connection_type:     :pptp,
                                           encryption_level:    :auto,
                                           proxy_type:          :none,
-                                          send_all_traffic?    true,
+                                          send_all_traffic:    true,
                                           server:              "example.org",
                                           username:            "macdemarco",
                                           password:            "viceroy"
@@ -207,6 +207,52 @@ proxy_port
 proxy_username
 proxy_password
 proxy_url
+```
+
+### Restrictions
+
+```ruby
+payload = IOSConfig::Payload::Restrictions.new(parameters).build
+```
+
+Available parameters:
+
+```ruby
+allow_adding_game_center_friends # true false
+allow_app_installation # true false
+allow_app_removal # true false
+allow_assistant # true false
+allow_assistant_while_locked # true false
+allow_bookstore # true false
+allow_bookstore_erotica # true false
+allow_camera # true false
+allow_chat # true false
+allow_cloud_backup # true false
+allow_cloud_document_sync # true false
+allow_explicit_content # true false
+allow_fingerprint_for_unlock # true false
+allow_game_center # true false
+allow_global_background_fetch_when_roaming # true false
+allow_in_app_purchases # true false
+allow_multiplayer_gaming # true false
+allow_open_from_managed_to_unmanaged # true false
+allow_open_from_unmanaged_to_managed # true false
+allow_passbook_while_locked # true false
+allow_photo_stream # true false
+allow_safari # true false
+allow_screen_shot # true false
+allow_shared_stream # true false
+:allow_shared_stream_receive_invitation # true false
+:allow_shared_stream_send_invitation # true false
+allow_u_i_configuration_profile_installation # true false
+allow_untrusted_t_l_s_prompt # true false
+allow_video_conferencing # true false
+allow_voice_dialing # true false
+allow_you_tube # true false
+allowi_tunes # true false
+force_assistant_profanity_filter # true false
+force_encrypted_backup # true false
+force_i_tunes_store_password_entry # true false
 ```
 
 ### Custom Payloads

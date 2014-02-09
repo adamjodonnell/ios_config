@@ -16,9 +16,10 @@ module IOSConfig
                   :client_certs   # (optional) certificates used to encypt payloads
 
     def initialize(options = {})
+			self.client_certs = nil
       options.each { |k,v| self.send("#{k}=", v) }
-      puts self.allow_removal
-      puts self.allow_removal.nil?
+#puts self.allow_removal
+#puts self.allow_removal.nil?
       self.allow_removal  = true if self.allow_removal.nil?
       self.type           ||= 'Configuration'
       self.version        ||= 1
@@ -65,7 +66,7 @@ module IOSConfig
     private
   
     def raise_if_blank(required_attributes)
-      required_attributes.each { |a| raise "#{a} must be set" if self.send(a).blank? }
+      required_attributes.each { |a| raise "#{a} must be set" if self.send(a).nil? }
     end
     
   end
