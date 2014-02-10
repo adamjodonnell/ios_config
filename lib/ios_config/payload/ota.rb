@@ -17,9 +17,9 @@ module IOSConfig
       
       def build
         p = { 'URL' => @url,
-              'Challenge' => @challenge,
               'DeviceAttributes' => ['UDID', 'IMEI', 'ICCID', 'VERSION', 'PRODUCT']
               }
+        p['Challenge'] => @challenge if @challenge
       end
 
     end

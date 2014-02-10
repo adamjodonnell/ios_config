@@ -122,6 +122,19 @@ whitelist   # array of DeviceIDs
 passwords   # array of dictionaries with keys :device_name and :password
 ```
 
+#### OTA Profile
+
+```ruby
+payload = IOSConfig::Payload::Ota.new(parameters).build
+```
+
+Available parameters:
+
+```ruby
+url         # URL to ping after profile is downloaded
+challenge   # Challenge string
+```
+
 #### AirPrint
 
 ```ruby
