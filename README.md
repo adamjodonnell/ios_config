@@ -246,8 +246,8 @@ allow_photo_stream # true false
 allow_safari # true false
 allow_screen_shot # true false
 allow_shared_stream # true false
-:allow_shared_stream_receive_invitation # true false
-:allow_shared_stream_send_invitation # true false
+allow_shared_stream_receive_invitation # true false
+allow_shared_stream_send_invitation # true false
 allow_u_i_configuration_profile_installation # true false
 allow_untrusted_t_l_s_prompt # true false
 allow_video_conferencing # true false
