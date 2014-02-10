@@ -19,7 +19,9 @@ module IOSConfig
         p = { 'URL' => @url,
               'DeviceAttributes' => ['UDID', 'IMEI', 'ICCID', 'VERSION', 'PRODUCT']
               }
-        p['Challenge'] => @challenge if @challenge
+        p['Challenge'] = @challenge if @challenge
+        
+        p
       end
 
     end
